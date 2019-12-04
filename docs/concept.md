@@ -66,3 +66,5 @@ From here, we simply multiply each variable by their associated percentage 70/30
 2. action_coherence - (100 * 0.30) = 30
 
 The combined total of those two numbers is 100/150. Remember that 150 is the cap for all variables in this problem. We could then reward the reinforcement learning algorithm a single number it can try to maximize.
+
+I'm sure there are some questions of how to generate these weights, or perhaps how to adaptively scale the cap of each variable. We'll figure that out over time. At the same time, this is a calm overview of what this library aims to achieve. A means of creating powerful multi-objective rewards like what was just mentioned.
