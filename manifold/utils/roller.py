@@ -13,6 +13,9 @@ import talib as ta
     -----------------------------------------------------
     ------------ Reward related functions. --------------
     -----------------------------------------------------
+
+    They get the rolling status of a vector to judge the reward for the movement of that vector. 
+    We should probably add this into a util folder inside of the library.
 """
 
 def get_regression_by_list(r_list: List[float]):
@@ -291,29 +294,3 @@ def multi_sortino():
             #     time.sleep(1)
 if __name__ == "__main__":
     multi_sortino()
-    # bp = WienerProcess()
-    # s = bp.sample(10000) * 10000
-    # actions = [np.random.randint(0, 2) for x in range(1000)]
-    # action_score = rolling_action_count(actions)
-    # print(action_score)
-    # print(rlist)
-    # real = talib.ROCP(s, timeperiod=20)
-    # print(real)
-    # real2 = talib.LINEARREG_SLOPE(s, timeperiod=20)
-    
-    # n = 20
-    # clipped_list = np.array(s[n-1:])
-    # r_mean = np.array(list(rolling.Mean(s, n)))
-    # r_mean = np.array(r_mean[~np.isnan(r_mean)].tolist())
-
-    # r_std = np.array(list(rolling.Std(s, n)))
-    # r_std = np.array(r_std[~np.isnan(r_std)].tolist())
-    
-
-    # x_minus = clipped_list - r_mean
-    # rolling_normalized = x_minus/r_std
-    # print(rolling_normalized)
-    # print(r_std)
-    
-    # print(real[100:150])
-    # print(real2[100:150])
