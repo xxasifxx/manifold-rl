@@ -48,7 +48,11 @@ Using just the following end variables we can now determine a reward for this sp
 3. Overall speed + momentum towards ideal state
 
 
-After running a quick algebreic expression using those 3 scaler values, we can create a single number representing how much the RL agent just conformed to an ideal state. Not only that, we can get a feel of how the agent has conformed to an ideal state over time. That's because the rolling properties of the equation are **autoregressive** meaning the present state encodes many prior states. 
+After running a quick algebreic expression using those 3 scaler values, we can create a single number representing how much the RL agent just conformed to an ideal state. Not only that, we can get a feel of how the agent has conformed to an ideal state over time. That's because the rolling properties of the equation are **autoregressive** meaning the present state encodes many prior states. This concept is also seen with statistical moving averages.
+
+
+![autoregressive](assets/moving_average.gif)
+
 
 
 ### Combining Rewards
