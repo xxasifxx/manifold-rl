@@ -52,7 +52,7 @@ setup(
     long_description_content_type="text/markdown",
     py_modules=["manifold"],
     install_requires=[
-        "redis", 'scipy', 'numpy'
+        'scipy', 'numpy', 'rolling', 'stochastic', 'crayons', 'TA-Lib', 'pandas', 'sklearn'
     ], 
     packages=find_packages(),
     classifiers=[
