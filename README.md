@@ -16,7 +16,9 @@ We do this by focusing on using two major topics from complex geometry, optimiza
 
 ## Design Philosophy
 
-Comment about keras design philosophy ... Need to go into details. 
+Comment about `keras` design philosophy ... Need to go into details. 
+
+For further information, please refer to the [design doc](docs/design.md) and the some more [conceptual details](docs/concept.md) here.
 
 
 ## Installation Instructions
