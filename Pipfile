@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 manifold-ml = {editable = true, path = "."}
 creme = "*"
+loguru = "*"
 
 [dev-packages]
 

@@ -1,7 +1,7 @@
-from manifold_test.objectives.objective import Objective
-from manifold_test.objectives import Ranking
+from manifold.objectives import Objective
+from manifold.objectives import Ranking
 from stochastic.continuous import FractionalBrownianMotion
-from manifold_test import Manifold
+from manifold import Manifold
 # from manifold_test.base_types.valuation import ValueDict
 
 def test_get_all_information():

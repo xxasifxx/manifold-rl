@@ -31,6 +31,7 @@ class SmoothRollingDifferenceTransformer(Transformer):
     def _get_final_transformed(self, transformation_id):
         if len(self.proceedure) == 0: raise AttributeError("You don't have any proceedure steps")
         transformed = self.transformed.get(f"{transformation_id}", {})
+        print(transformed)
         if len(transformed.keys()) == 0:
             return 0.0
         last_step = self.proceedure[-1]
@@ -47,8 +48,8 @@ class SmoothRollingDifferenceTransformer(Transformer):
 
 
 if __name__ == "__main__":
-    smooth_jazz = HotStreak(0.2, is_range=True)
+    smooth_jazz = SmoothRollingDifferenceTransformer()
     model_id = uuid.uuid4().hex
     while True:
         action = random.randint(0, 2)
-        print(smooth_jazz.update(random.normalvariate(1, 0.2)).get())
+        print(smooth_jazz.step(action, model_id))

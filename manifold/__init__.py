@@ -1,1 +1,1 @@
-from manifold_test.base import Manifold
+from manifold.base import Manifold

@@ -1,5 +1,5 @@
-from typing import List, Optional, Dict, Any
-from manifold_test.objectives import Objective
+from typing import List, Dict, Any
+from manifold.objectives import Objective
 # from manifold_test.base_types.valuation import ValueDict, IndividualWeight, IndividualRewards
 
 
@@ -34,43 +34,48 @@ class Manifold(object):
     @property
     def weights(self) -> Dict[str, float]:
         # Get all of the `IndividualWeight` in a list and flatten them into a single key/value dict.
-
+        # The weights are found using the scalar
         return {}
 
 
     @property
     def rewards(self) -> Dict[str, float]:
+        general_rewards = self._get_individual_rewards()
         return {}
 
-    def _transform(self):
-        """ Get the current reward given the objective"""
-        return ""
     
-    def reset(self):
-        """ Reset all of the lists"""
-        pass
 
     def _push_values(self, monitored:List[Dict[str, Any]]):
+
+
         for monitor in monitored:
             monitored_name = monitor['name']
             current_objective = self._objective_dict.get(monitored_name, None)
             current_value = monitor['value']
             current_ambient = monitor['ambient']
+            
 
             if current_objective is not None:
-                current_objective.push(main=current_value, ambient=current_ambient)
+                current_objective.push(state=current_value, ambient=current_ambient)
                 self._objective_dict[monitored_name] = current_objective
 
 
-
-    def _get_individual_rewards(self) -> List[Dict[str, Any]]:
+    def _get_individual_rewards(self) -> Dict[str, Any]:
         """ Get the list rewards """
-        return []
+        rewards_dict = {}
+
+        objective_keys = list(self._objective_dict.keys())
+        for ok in objective_keys:
+            objective = self._objective_dict[ok]
+            name = objective.name
+            reward = objective.transform_reward()
+            rewards_dict[name] = reward
+        return rewards_dict
     
 
-    def _get_individual_weights(self) -> List[Dict[str, Any]]:
+    def _get_individual_weights(self) -> Dict[str, Any]:
         """ Get the current score and get the percentage of the total score to derive the weight. """
-        return []
+        return {}
 
     def step(self, monitored:List[Dict[str, Any]]=[]):
         """ Go through each monitored value and get the reward for each value. """
@@ -94,3 +99,6 @@ class Manifold(object):
         return total_reward
 
 
+    def reset(self):
+        """ Reset all of the lists"""
+        pass

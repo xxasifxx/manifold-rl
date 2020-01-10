@@ -4,7 +4,7 @@ import uuid
 import random
 from loguru import logger
 import creme.stats
-from manifold_test.transformers import SmoothPearsonTransformer
+from manifold.transformers import SmoothPearsonTransformer
 
 
 # F = -kx - Thats for the force. If we're trying to get the overall
