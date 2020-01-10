@@ -175,7 +175,8 @@ class ActionRanking(Ranking):
 
     def processing_rule(self):
         # Takes the current history and transforms it
-        return 0.5
+        r = pearsonCorrelation() # todo
+        return r
     
     def transform(self):
         objective_priority = self.processing_rule()
